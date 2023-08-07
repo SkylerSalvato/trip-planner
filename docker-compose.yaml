@@ -1,0 +1,22 @@
+services: 
+  db:
+    image: mongodb/mongodb-community-server:6.0-ubi8
+    restart: always
+    volumes:
+    - ./data/db:/data/db
+    environment:
+    - MONGO_INITDB_ROOT_USERNAME=tripplanner
+    - MONGO_INITDB_ROOT_PASSWORD=${MONGO_PASSWORD}
+    ports:
+    - '8001:27017'
+  web: 
+    build: .
+    ports: 
+      - '8000:8000'
+    volumes:
+    - .:/opt/trip-planner
+    depends_on:
+    - db
+    environment:
+    - MONGO_PASSWORD=${MONGO_PASSWORD}
+    

@@ -1,7 +1,7 @@
 FROM python:3.11.4-slim
 
 COPY requirements.txt .
-RUN pip install --user -r requirements.txt
+RUN pip3 install --user -r requirements.txt
 
 ENV PYTHONUNBUFFERED 1
 
