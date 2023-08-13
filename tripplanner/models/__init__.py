@@ -1,8 +1,25 @@
 # from django.db import models
-from .trip import Trip
-from .itinerary import Itinerary
-from .day import Day
-from .activity import Activity, ActivityInfo
-from .user import User
+from .activity import *
+from .cost import *
+from .day import *
+from .itinerary import *
+from .location import *
+from .reservation import *
+from .route import *
+from .trip import *
+from .user import *
 
-__all__ = [Trip, Itinerary, Day, Activity, ActivityInfo, User]
+__all__ = [
+    Activity, ActivityDetails,
+    LodgingActivity,
+    TransportActivity, PlaneTransport, PublicTransport, BusTransport, TrainTransport, BoatTransport, CarTransport, 
+    DestinationActivity, TourDestination,
+    Cost,
+    Day,
+    Itinerary,
+    Location, Business, ConnectionAirport,
+    Reservation,
+    Route,
+    Trip,
+    User
+]

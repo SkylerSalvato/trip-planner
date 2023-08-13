@@ -4,6 +4,21 @@ from mongoengine import (StringField, URLField, EmbeddedDocumentField, ListField
 from .location import Location, ConnectionAirport
 from .cost import Cost
 
+__all__ = [
+    'Activity',
+    'ActivityDetails',
+    'LodgingActivity',
+    'TransportActivity',
+    'PlaneTransport',
+    'PublicTransport',
+    'BusTransport',
+    'TrainTransport',
+    'BoatTransport',
+    'CarTransport',
+    'DestinationActivity',
+    'TourDestination'
+]
+
 class ActivityDetails(EmbeddedDocument):
     meta = {
         'abstract': True
@@ -18,6 +33,9 @@ class LodgingActivity(ActivityDetails):
     notable_amenities = StringField()
 
 class TransportActivity(ActivityDetails):
+    meta = {
+        'allow_inheritance': True
+    }
     source_timezone = StringField()
     destination_timezone = StringField()
 
@@ -49,6 +67,9 @@ class CarTransport(TransportActivity):
     category = StringField() # Rental or Private Transfer
 
 class DestinationActivity(ActivityDetails):
+    meta = {
+        'allow_inheritance': True
+    }
     start_time = DateTimeField()
     end_time = DateTimeField()
     time_at_destination = DateTimeField()
