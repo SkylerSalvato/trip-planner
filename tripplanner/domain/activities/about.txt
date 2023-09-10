@@ -1,0 +1,3 @@
+This folder is for performing database operations on items involving activities. The functions will be available for the views to use.
+
+Make sure to include currency conversion in here for cost. Maybe also add total cost calculation, and allow separating by currency.
